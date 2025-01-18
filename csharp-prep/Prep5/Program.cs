@@ -10,7 +10,7 @@ class Program
         int favNumber = PromptUserNumber();
 
         int square = SquareNumber(favNumber);
-        DisplayResults(userName, favNumber, square);
+        DisplayResults(userName, square);
 
     }
     static void DisplayWelcome()
@@ -36,8 +36,8 @@ class Program
         return number * number;
 
     }
-    static void DisplayResults(string userName, int favNumber, int number)
+    static void DisplayResults(string userName, int square)
     {
-        Console.WriteLine($"{userName}, the square of your number is {number}");
+        Console.WriteLine($"{userName}, the square of your number is {square}");
     }
 }
