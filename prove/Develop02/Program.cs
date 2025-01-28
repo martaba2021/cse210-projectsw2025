@@ -1,9 +1,19 @@
 using System;
 
-class Program
+public class Journal
 {
-    static void Main(string[] args)
+    public List<Entry>_entries = new List<Entry>();
+    //public Journal()
+//{
+
+//}
+    public void AddingDailyJournalEntry()
     {
-        Console.WriteLine("Hello Develop02 World!");
+        _entries.Add(entry);
+    }
+
+    public void LoadingDailyJournalEntry()
+    {
+
     }
 }
