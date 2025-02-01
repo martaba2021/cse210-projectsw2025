@@ -12,6 +12,6 @@ public class Entry
     }
     public void DisplayJournalEntry()
     {
-        Console.WriteLine($"{_journalDateTime}: {_dailyJournalEntry}"):
+        Console.WriteLine($"{_journalDateTime}: {_dailyJournalEntry}");
     }
 }

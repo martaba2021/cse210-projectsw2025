@@ -2,10 +2,10 @@ using System;
 using System.Runtime.Serialization;
 using System.Collections.Generic;
 
-/*public class PromptGenerator
+public class PromptGenerator
 {
     public string _journalPromptGenerator; //field
-        private string[] prompts = new string[]
+        public string[] prompts = new string[]
         {
         "Who was the most interesting person I interacted with today?",
         "What was the best part of my day?",
@@ -19,10 +19,10 @@ using System.Collections.Generic;
         "Was there any event today that reminded you of how far you have come and achieved your goals?",
         "What talents did you use today to help someone in need?"
         };
-    public void GetRandomPrompt()   //method to get a random prompt
+    public string GetRandomPrompt()   //method to get a random prompt
     {
        Random random = new Random();
         int index = random.Next(prompts.Length);
         return prompts[index]; 
     }
-}*/
+}
