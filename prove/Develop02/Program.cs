@@ -28,49 +28,16 @@ public class Program
             {
                 Console.WriteLine("Invalid input. Please enter a number from 1 to 5.");
             }
-
-            switch (choiceSelected)
+            else if (choiceSelected == 1)
             {
-                case 1:
-
                 string prompt = promptGenerator.GetRandomPrompt();
-                Console.WriteLine("Here is your prompt: ");
-                Console.WriteLine(prompt);
-                Console.WriteLine(" ");
+                Console.Write($"Here is your prompt: {prompt}");
                 string entryText = Console.ReadLine();
-                journal.AddDailyJournalEntry(entryText, prompt);
-                break;
-
-                case 2:
-
-                journal.DisplayJournalEntries();
-                break;
-
-                case 3:
-                journal.LoadDailyJournalEntry();
-                break;
-
-                case 4:
-                journal.SaveDailyJournalEntry();
-                break;
-
-                case 5:
-                Console.WriteLine("Goodbye");
-                break;
-
-                default:
-                Console.WriteLine("Invalid choice. Please enter a number from 1 to 5.");
-                break;
+                journal.AddDailyJournalEntry(prompt, entryText);
             }
-        } 
-        while (choiceSelected !=5);
-    }          
-}    
-    
-/*}
             else if (choiceSelected == 2)
             {
-                journal.DisplayListJournalEntry();
+                journal.DisplayJournalEntries();
             }
             else if (choiceSelected == 3)
             {
@@ -89,26 +56,52 @@ public class Program
             {
                 Console.WriteLine("Invalid choice. Please try again.");
             }
-
-            while (FormatException)
-            {
-                Console.WriteLine("Invalid input. Please enter a number from 1 to 5.");
-            }
         }
-        }
-    
-    
-    
-    
-    /*static void Main(string[] args)
-    {
-        PromptGenerator promptGenerator = new PromptGenerator();
-
-        string prompt = promptGenerator.GetRandomPrompt();
-
-        Console.WriteLine(+prompt);
+        while (choiceSelected != 5);
     }
+}
+/*switch (choiceSelected)
+{
+    case 1:
 
+    string prompt = promptGenerator.GetRandomPrompt();
+    Console.Write($"Here is your prompt: {prompt}");
+    string entryText = Console.ReadLine();
+    journal.AddDailyJournalEntry(prompt, entryText);
+    break;
 
+    case 2:
+
+    journal.DisplayJournalEntries();
+    break;
+
+    case 3:
+    journal.LoadDailyJournalEntry();
+    break;
+
+    case 4:
+    journal.SaveDailyJournalEntry();
+    break;
+
+    case 5:
+    Console.WriteLine("Goodbye");
+    break;
+
+    default:
+    Console.WriteLine("Invalid choice. Please enter a number from 1 to 5.");
+    break;
+}
+} 
+while (choiceSelected !=5);
+}          
+}*/
+/*static void Main(string[] args)
+{
+    PromptGenerator promptGenerator = new PromptGenerator();
+
+    string prompt = promptGenerator.GetRandomPrompt();
+
+    Console.WriteLine(+prompt);
+}
 }
 */

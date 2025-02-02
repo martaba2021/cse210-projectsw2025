@@ -6,19 +6,34 @@ public class Journal
 {
     public List<Entry> _entries = new List<Entry>(); //list    
     private const string fileName = "journal.txt";
-    public void AddDailyJournalEntry(string entryText, string prompt) //method
+    public static string FileName => fileName;
+    public void AddDailyJournalEntry(string prompt, string entryText) //method
     {
         DateTime theCurrentTime = DateTime.Now;
         string dateTime = theCurrentTime.ToShortDateString();
-        Entry newEntry = new Entry(dateTime, prompt, entryText);
-        _entries.Add(newEntry);
-        Console.WriteLine("Your entry has been saved!");
+        Entry entry = new Entry(dateTime, prompt, entryText);
+        _entries.Add(entry);
+        Console.WriteLine("What would you like to do next");
+    }
+    public void DisplayJournalEntries()
+    {
+        if (_entries.Count == 0)
+        {
+            Console.WriteLine("No journal entries to display.");
+            return;
+        }
+        foreach (var entry in _entries)
+        {
+            Console.WriteLine($"Date: {entry._journalDateTime}");
+            Console.WriteLine($"{entry._prompt}");
+            Console.WriteLine($"{entry._dailyJournalEntry}");
+        }
     }
     public void LoadDailyJournalEntry() //method
     {
-        if (File.Exists(fileName))
+        if (File.Exists(FileName))
         {
-            using (StreamReader reader = new StreamReader(fileName))
+            using (StreamReader reader = new StreamReader(FileName))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)
@@ -45,27 +60,14 @@ public class Journal
     }
     public void SaveDailyJournalEntry()
     {
-        using (StreamWriter writer = new StreamWriter(fileName, append: true))
+        using (StreamWriter writer = new StreamWriter(FileName, append: true))
         {
             foreach (var entry in _entries)
             {
-                writer.WriteLine($"{entry._journalDateTime} | {entry._dailyJournalEntry}");
+                writer.WriteLine($"{entry._journalDateTime} | {entry._prompt} | {entry._dailyJournalEntry}");
             }
             Console.WriteLine("Your entry has been saved.");
         }
     }
-    public void DisplayJournalEntries()
-    {
-        if (_entries.Count == 0)
-        {
-            Console.WriteLine("No journal entried to display.");
-            return;
-        }
-        foreach (var entry in _entries)
-        {
-            Console.WriteLine($"Date: {entry._journalDateTime}");
-            Console.WriteLine($"{entry._journalPromptGenerator}");
-            Console.WriteLine($"{entry._dailyJournalEntry}");
-        }
-    }
+    
 }

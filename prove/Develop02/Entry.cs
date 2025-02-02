@@ -2,17 +2,18 @@ using System;
 
 public class Entry
 {
-    public string _journalDateTime;    
+    public string _journalDateTime;  
+    public string _prompt;  
     public string _dailyJournalEntry;
-    internal object _journalPromptGenerator;
 
-    public Entry(string dateTime, string prompt, string entryText)
+    public Entry(string journaldateTime, string prompt, string entryText)
     {
-        _journalDateTime = dateTime;
+        _journalDateTime = journaldateTime;
         _dailyJournalEntry = entryText;
+        _prompt = prompt;
     }
     public void DisplayJournalEntry()
     {
-        Console.WriteLine($"{_journalDateTime}: {_dailyJournalEntry}");
+        Console.WriteLine($"{_journalDateTime}, {_prompt}:{_dailyJournalEntry}");
     }
 }
